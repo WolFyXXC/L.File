@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApp3
 {
-    internal class TestFile
+    internal class TestFile : Error
     {
         public static double? calcLinear(double a, double x)
         {
@@ -15,21 +16,17 @@ namespace ConsoleApp3
 
             try
             {
-                if (double.IsNaN(y))
-                {
+                if (double.IsNaN(y))        
                     throw new InfinityException("Результат не является числом");
-                }
-                if (double.IsPositiveInfinity(y))
-                {
-                    throw new InfinityException("Результат не является числом");
-                }
+                
+                if (double.IsPositiveInfinity(y))             
+                    throw new InfinityException("Результат не является числом");   
             }
             catch (Exception ex)  
             {
-                Console.WriteLine(ex.Message);
-                return null;
+                Console.WriteLine(ex.Message); return null;              
             }
-            return
+            return y;
         }
     }
 }

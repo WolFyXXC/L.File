@@ -20,10 +20,11 @@ namespace ConsoleApp3
                 string[] subs = test.Split(' ');
                 double a = double.Parse(subs[0].Trim());
                 double b = double.Parse(subs[1].Trim());
-                Console.WriteLine($"Данные теста : {count}: {a} {b}");
+                var y = TestFile.calcLinear(a, b);
+                Console.WriteLine(y);
                 count++;
             }
-
+            Console.WriteLine(TestFile.calcLinear(0.5, 0.5));
             Console.ReadKey();
         }
     }
